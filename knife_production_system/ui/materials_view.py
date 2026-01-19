@@ -13,7 +13,6 @@ class MaterialsView(tk.Frame):
     def build_ui(self):
         tk.Label(self, text="Materials", font=("Arial", 18), bg="#f5f5dc").pack(pady=8)
 
-        # Treeview
         columns = ("ID", "Name", "Unit Cost", "Stock")
         self.tree = ttk.Treeview(self, columns=columns, show="headings", height=10)
         for c in columns:
@@ -52,11 +51,7 @@ class MaterialsView(tk.Frame):
             self.tree.delete(r)
         rows = self.db.list_materials()
         for row in rows:
-            self.tree.insert(
-                "",
-                "end",
-                values=(row["id"], row["name"], row["unit_cost"], row["stock_quantity"])
-            )
+            self.tree.insert("", "end", values=(row["id"], row["name"], row["unit_cost"], row["stock_quantity"]))
 
     def reset_form(self):
         self.selected_id = None
@@ -64,11 +59,11 @@ class MaterialsView(tk.Frame):
         self.unit_cost_entry.delete(0, tk.END)
         self.stock_entry.delete(0, tk.END)
 
-    def on_select(self, event):
-        sel = self.tree.selection()
-        if not sel:
+    def on_select(self, action):
+        selected = self.tree.selection()
+        if not selected:
             return
-        item = self.tree.item(sel[0])["values"]
+        item = self.tree.item(selected[0])["values"]
         self.selected_id = item[0]
         self.name_entry.delete(0, tk.END)
         self.name_entry.insert(0, item[1])
@@ -86,7 +81,7 @@ class MaterialsView(tk.Frame):
             unit_cost = float(self.unit_cost_entry.get())
             stock = float(self.stock_entry.get() or 0)
         except ValueError:
-            messagebox.showerror("Error", "Unit cost and stock must be numbers")
+            messagebox.showerror("Error", "Invalid input")
             return
         self.db.add_material(name, unit_cost, stock)
         messagebox.showinfo("Success", "Material added")
@@ -95,7 +90,7 @@ class MaterialsView(tk.Frame):
 
     def update_material(self):
         if not self.selected_id:
-            messagebox.showwarning("Select", "Select a material to update")
+            messagebox.showwarning("Select", "Nothing selected")
             return
         name = self.name_entry.get().strip()
         if not name:
@@ -105,7 +100,7 @@ class MaterialsView(tk.Frame):
             unit_cost = float(self.unit_cost_entry.get())
             stock = float(self.stock_entry.get() or 0)
         except ValueError:
-            messagebox.showerror("Error", "Unit cost and stock must be numbers")
+            messagebox.showerror("Error", "Invalid input")
             return
         self.db.update_material(self.selected_id, name, unit_cost, stock)
         messagebox.showinfo("Success", "Material updated")
