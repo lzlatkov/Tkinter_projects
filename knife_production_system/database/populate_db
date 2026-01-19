@@ -1,0 +1,62 @@
+# from database import db
+#
+# materials = [
+#     ("High Carbon Steel", 22.50, 50),
+#     ("N690Cobalt - Böhler", 40.00, 30),
+#     ("Stainless Steel D2", 35.00, 30),
+#     ("Stainless Steel 440B", 20.00, 35),
+#     ("Stainless Steel 440C", 30.00, 40),
+#     ("Damascus Steel", 75.00, 20),
+#     ("Micarta Handle ", 12.00, 60),
+#     ("G10 Handle ", 14.00, 55),
+#     ("Mammoth Tusk Handle ", 25.00, 10),
+#     ("Horn Handle ", 15.00, 60),
+#     ("Walnut Handle ", 12.00, 60),
+#     ("Hardwood Handle Blocks", 8.50, 70),
+#     ("Brass Pins", 0.80, 200),
+#     ("Leather Sheath ", 9.00, 40),
+#     ("Epoxy Resin", 4.00, 25),
+#     ("Sandpaper ", 6.00, 100),
+# ]
+#
+# for name, cost, qty in materials:
+#     db.add_material(name, cost, qty)
+#
+#
+# products = [
+#     ('Bushcraft Knife', 0, 'Survival knife'),
+#     ('Chefs Knife', 0, 'Kitchen knife'),
+#     ('Hunting Knife', 0, 'Hunting knife'),
+#     ('Damascus  Knife', 0, ' Damascus blade'),
+#     ('Pocket Knife', 0, 'Folding knife')
+# ]
+#
+# for name, price, description in products:
+#     db.add_product(name, price, description)
+#
+#
+# customers = [
+#     ('Ivan', 'Petrov', 'ivan.petrov@example.com', '+359885123456'),
+#     ('Georgi', 'Dimitrov', 'georgi.dimitrov@example.com', '+359889654321'),
+#     ('Maria', 'Ivanova', 'maria.ivanova@example.com', '+359888777666'),
+#     ('Nikolay', 'Stoyanov', 'nikolay.stoyanov@example.com', '+359886112233'),
+#     ('Elena', 'Koleva', 'elena.koleva@example.com', '+359887445566'),
+#     ('Petya', 'Krasimirova', 'petya.krasimirova@example.com', '+359884998877'),
+#     ('Dimitar', 'Georgiev', 'dimitar.georgiev@example.com', '+359889343434'),
+#     ('Aleksandra', 'Kamenova', 'aleksandra.kamenova@example.com', '+359887121212')
+# ]
+#
+# for first_name, last_name, email, phone in customers:
+#     db.add_customer(first_name, last_name, email, phone)
+#
+#
+# workers = [
+#     ('Stoyan', 'Iliev', 'Blacksmith', 18.50),
+#     ('Kiril', 'Hristov', 'Blade Polisher', 16.00),
+#     ('Todor', 'Nikolov', 'Handle Maker', 15.00),
+# ]
+#
+# for first_name, last_name, role, hourly_rate in workers:
+#     db.add_worker(first_name, last_name, role, hourly_rate)
+#
+# print("Done")
